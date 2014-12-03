@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  //- a(href="https://soundcloud.com/connect?client_id=858ef5ad42ec60ae1747c188576c7312&response_type=token&scope=non-expiring&redirect_uri=http://localhost:3000/get-token") Generate Token
+  button.get-token Get Token!
+  p #{access_token}
+  script(src="/javascripts/token.js")
