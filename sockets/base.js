@@ -49,11 +49,17 @@ module.exports = function(io) {
 
     socket.on('player switch', function(data) {
       console.log(data);
-      io.to(data.socketId).emit('player switch emit', data);
+      socket.to(room).emit('player pause emit');
+      if (data) {
+        if (data.socketId) {
+          io.to(data.socketId).emit('player switch emit', data);
+        }
+      }
       // console.log(data);
     })
 
     socket.on('player toggle', function(data) {
+      console.log(data);
       io.to(data.socketId).emit('player toggle emit');
     })
 
